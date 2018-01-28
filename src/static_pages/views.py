@@ -4,7 +4,7 @@ from posts.models import Post
 # Create your views here.
 
 def index(request):
-    query_set = Post.objects.all()
+    query_set = Post.objects.all().filter(draft=0)
 
     context = {
 
