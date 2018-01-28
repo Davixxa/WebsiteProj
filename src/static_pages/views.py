@@ -1,7 +1,15 @@
 from django.shortcuts import render, HttpResponse
-from .models import Post
+from posts.models import Post
 
 # Create your views here.
 
 def index(request):
-    return HttpResponse("Hello World")
+    query_set = Post.objects.all()
+
+    context = {
+
+        "query_set": query_set
+
+    }
+
+    return render(request, "index.html", context)
