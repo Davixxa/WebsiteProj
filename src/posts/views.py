@@ -1,8 +1,20 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, get_object_or_404
 from .models import Post
+import markdownx
 
 # Create your views here.
 
 
-def index(request):
-    return HttpResponse("Shit works")
+def post_detail(request, slug=None):
+    instance = get_object_or_404(Post, slug=slug)
+    
+    instance.content = markdownx.utils.markdownify(instance.content)
+
+    context = {
+    
+        "instance": instance, 
+    
+    }
+
+    return render(request,"post_detail.html", context)
+
