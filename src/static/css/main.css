@@ -12,6 +12,7 @@
 
 
 
+
 /* Semantic UI Footer -- Source: https://philipwalton.github.io/solved-by-flexbox/demos/sticky-footer/ */
 
 .Site {
@@ -51,4 +52,49 @@
   }
   .Site-content--full::after {
     content: none;
+  }
+
+
+
+
+  /* Dark */
+
+  .content {
+    background-color: #454545 !important;
+    color: #f7f7f7 !important;
+    border: none !important;
+  }
+  
+  .ui.card, .ui.cards>.card {
+    box-shadow: 1px 1px 0.5px 0.5px #525252 !important;
+  }
+  
+  .message {
+    background-color: #242424 !important;
+  }
+  
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  .huge,
+  .sub,
+  .meta .date {
+    color: #f7f7f7 !important;
+  }
+  
+  a {
+    color: #389dff !important;
+  }
+  
+  .author {
+    color: #2b82bf !important;
+  }
+  
+  body {
+    background-color: #383838 !important;
+    color: #D9D9D9 !important;
   }

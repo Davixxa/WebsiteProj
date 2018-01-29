@@ -6,8 +6,16 @@
 
 {% block content %}
     <div class="article">
-        <h1>{{instance.title}}</h1>
-        <div class="body">{{instance.content |safe}}</div>
+        <div class="ui container">
+            <div align="center">
+                <img src="{{ instance.image }}" alt="" style="width: 60%; max-height: 50rem;" align="center">
+            </div>
+            <div class="ui message">
+                <h1>{{instance.title}}</h1>
+                <div class="body">{{instance.content |safe}}</div>
+            </div>
+        </div>
     </div>
 
+    <br><br>
 {% endblock %}
