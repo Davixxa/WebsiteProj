@@ -16,7 +16,16 @@ class Post(models.Model):
 
     def get_class_name(value):
       return value.__class__.__name__
+
+    #def __unicode__(self):
+    #  return self.title
+
+    #def __repr__(self):
+    #  return self.title
     
+    def __str__(self):
+      return self.title
+
     class Meta:
         ordering = ["-timestamp"]    
 

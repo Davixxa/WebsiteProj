@@ -2,11 +2,18 @@
 
 {% block title %} Home {% endblock %}
 
+
+
 {% block content %}
+
+    <div class="ui container">
+
     {% for post in query_set %}
-    <div>
-        <a href="{% url 'posts:detail' slug=post.slug %}"><h1>{{post.title}}</h1></a>
-    </div>
+        <div>
+            <a href="{% url 'posts:detail' slug=post.slug %}"><h1>{{post.title}}</h1></a>
+        </div>
     {% endfor %}
+
+    </div>
     
 {% endblock %}

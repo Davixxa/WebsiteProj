@@ -6,15 +6,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="{% static 'semantic/semantic.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
 <title>Davixxa.net | {%block title %} 404 Page Not Found{% endblock %}</title>
 </head>
 <body>
 
-    {% block content %}
-    <h1>404 Not Found</h1>
-    <p>We're sorry, but we couldn't find your page.</p>
-    {% endblock %}
+    <div class="ui inverted top menu">
+        <div class="header item">Davixxa</div>
+        <a href="" class="item">Home</a>
+        <a href="" class="item">Blog</a>
+        <a href="" class="item">Projects</a>
 
+    </div>
+
+
+
+    <br><br>
+    <div class="ui container">
+
+        Hi
+
+    </div>
+    <main role="main">
+        {% block content %}
+        <h1>404 Not Found</h1>
+        <p>We're sorry, but we couldn't find your page.</p>
+        {% endblock %}
+    </main>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="{% static 'semantic/semantic.min.js' %}"></script>
 </body>
 </html>
