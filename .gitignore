@@ -103,3 +103,4 @@ src/db.sqlite3
 migrations
 .vscode/settings.json
 public
+.vscode

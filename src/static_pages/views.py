@@ -6,6 +6,9 @@ from posts.models import Post
 def index(request):
     query_set = Post.objects.all().filter(draft=0)
 
+    for query in query_set:
+         query.author = query.user.get_username()
+
     context = {
 
         "query_set": query_set

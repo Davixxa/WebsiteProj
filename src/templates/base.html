@@ -10,33 +10,60 @@
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
 <title>Davixxa.net | {%block title %} 404 Page Not Found{% endblock %}</title>
 </head>
-<body>
+<body class="Site">
+    <header>
+        <div class="ui inverted top menu">
+            <div class="header item">Davixxa</div>
+            <a href="" class="item">Home</a>
+            <a href="" class="item">About</a>
+            <a href="" class="item">Blog</a>
+            <a href="" class="item">Projects</a>
+            
 
-    <div class="ui inverted top menu">
-        <div class="header item">Davixxa</div>
-        <a href="" class="item">Home</a>
-        <a href="" class="item">Blog</a>
-        <a href="" class="item">Projects</a>
-
-    </div>
-
+        </div>
+    </header>
 
 
     <br><br>
-    <div class="ui container">
 
-        Hi
+    <main role="main" class="Site-content">
+                {% block content %}
+                <h1>404 Not Found</h1>
+                <p>We're sorry, but we couldn't find your page.</p>
+                {% endblock %}
 
-    </div>
-    <main role="main">
-        {% block content %}
-        <h1>404 Not Found</h1>
-        <p>We're sorry, but we couldn't find your page.</p>
-        {% endblock %}
     </main>
 
 
-
+    <footer>
+        
+    <footer>
+            
+                    <div class="ui equal width padded grid">
+            
+                        <div class="row">
+                            <div class="black column">
+            
+                                <h4>Davixxa - Insert Generic Tagline here</h4>
+            
+                            </div>
+                            <div class="black center aligned column">
+                                <a>Home</a> &bull;
+                                <a>About</a> &bull;
+                                <a>Blog</a> &bull;
+                                <a>Projects</a>
+                            </div>
+                            <div class="black right aligned column">
+            
+                                Copyright &copy; 2018 Davixxa
+            
+                            </div>
+                        </div>
+                    </div>
+            
+                </footer>
+            
+    </footer>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="{% static 'semantic/semantic.min.js' %}"></script>

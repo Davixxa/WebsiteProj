@@ -10,6 +10,7 @@ class Post(models.Model):
     title = models.CharField(max_length=300)
     slug = models.SlugField(unique=True, primary_key=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
+    image = models.CharField(max_length=300, default="#")
     content = MarkdownxField()
     draft = models.BooleanField(default=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
