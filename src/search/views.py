@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.db.models import Q
+from django.views.decorators.cache import cache_page
 from itertools import chain
 
 from posts.models import Post
@@ -7,6 +8,7 @@ from projs.models import Project
 from gitlab_watcher.models import GitlabProject
 
 # Create your views here.
+@cache_page(60 * 15) # 15min search cache comment this line while developing
 def search(request):
     """Render search page
 
