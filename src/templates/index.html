@@ -22,7 +22,7 @@
             <div class="ui link fluid card">
                
                 <div class="image">
-                    <a href="{% url 'posts:detail' slug=post.slug %}"><img src="{{ post.image }}" alt=""></a>
+                    <img onclick="window.location='{% url 'posts:detail' slug=post.slug %}'" src="{{ post.image }}" alt="">
                 </div>
                 <div class="content">
                     <span class="header"><h3>{{ post.title }}</h3></span>
