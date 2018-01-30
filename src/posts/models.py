@@ -12,9 +12,6 @@ class Post(models.Model):
     draft = models.BooleanField(default=True)
     math = models.BooleanField(default=True, verbose_name="Render Latex Math (using '$$' and '$' as display/inline delimiters)")
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
-
-    def get_class_name(value):
-        return value.__class__.__name__
    
     def __str__(self):
         return self.title
@@ -27,6 +24,4 @@ class Post(models.Model):
         return reverse("posts:detail", kwargs={"slug": self.slug})
 
     class Meta:
-        ordering = ["-timestamp"]    
-
-    
+        ordering = ["-timestamp"]

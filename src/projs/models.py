@@ -12,8 +12,6 @@ class Project(models.Model):
     custom_html = models.TextField(verbose_name="CUSTOM HTML")
     draft = models.BooleanField(default=True)
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
-    def get_class_name(self):
-      return self.__class__.__name__
     
     def __str__(self):
       return self.title
@@ -26,4 +24,4 @@ class Project(models.Model):
         return reverse("projs:detail", kwargs={"slug": self.slug})
 
     class Meta:
-        ordering = ["-timestamp"]    
+        ordering = ["-timestamp"]
