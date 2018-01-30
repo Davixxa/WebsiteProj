@@ -28,9 +28,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+# Site definition
+SITE = {
+    "url": "https://davixxa.net",
+    "logo_url": "https://pbs.twimg.com/profile_images/685958901431287808/g_DfNBbP_400x400.png",
+    "title": "Davixxa",
+    "description": "RAMBLINGS OF A LAZY WEEB TECH ENTHUSIAST."
+}
 
 # Application definition
-
 INSTALLED_APPS = [
     'posts',
     'projs', # 'projects' collides with the django internal 'projects' namespace
