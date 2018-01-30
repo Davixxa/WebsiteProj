@@ -13,6 +13,10 @@
                             <div class="ui fluid message">
                                 <span class="ui huge header">Davixxa's Spot</span><br>
                                 <span class="ui sub header">Ramblings of a lazy weeb tech enthusiast.</span>
+                                <form method='GET' action="{% url 'search:search' %}">
+                                        <input id="search-input" type='text' class="field" name='q' placeholder='Search' value='{{ request.GET.q }}' />
+                                        <button class="btn" type="submit">Search</button>
+                                    </form>
                             </div>
                         </div>
                     </div>

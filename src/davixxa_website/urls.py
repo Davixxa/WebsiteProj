@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^posts/', include("posts.urls", namespace='posts')),
     url(r'^projects/', include("projs.urls", namespace='projs')),
     url(r'', include("static_pages.urls", namespace='static')),
+    url(r'^search/', include("search.urls", namespace='search')),
 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

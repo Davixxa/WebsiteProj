@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %} Search {{ request.GET.q }} {% endblock %}
+
+{% block content %}
+
+<form method='GET' action="{% url 'search:search' %}">
+    <input id="search-input" type='text' class="field" name='q' placeholder='Search' value='{{ request.GET.q }}' />
+    <button class="btn" type="submit">Search</button>
+</form>
+
+{% for post in queryset %}
+<p>{{post.title}}</p>
+{% endfor %}
+{% endblock %}
