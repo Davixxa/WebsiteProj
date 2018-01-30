@@ -22,9 +22,9 @@ from django.conf.urls.static import static
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^markdownx/', include('markdownx.urls')),
-    url(r'^posts/', include("posts.urls",namespace='posts')),
-    url(r'^projects/', include("projs.urls",namespace='projs')),
-    url(r'', include("static_pages.urls",namespace='static')),
+    url(r'^posts/', include("posts.urls", namespace='posts')),
+    url(r'^projects/', include("projs.urls", namespace='projs')),
+    url(r'', include("static_pages.urls", namespace='static')),
 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
