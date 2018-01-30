@@ -1,9 +1,11 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.decorators.cache import cache_page
 import requests
 
 # Create your views here.
 from .models import Project
 
+@cache_page(60 * 15) # Gitlab cache comment this out while developing
 def gitlab_detail(request, slug):
     if slug.isdigit():
         iid = slug
