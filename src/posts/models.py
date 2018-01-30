@@ -13,6 +13,7 @@ class Post(models.Model):
     image = models.CharField(max_length=300, default="#")
     content = MarkdownxField()
     draft = models.BooleanField(default=True)
+    math = models.BooleanField(default=True, verbose_name="Render Latex Math (using '$$' and '$' as display/inline delimiters)")
     timestamp = models.DateTimeField(auto_now=False, auto_now_add=True)
 
     def get_class_name(value):
