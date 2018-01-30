@@ -4,6 +4,7 @@ from itertools import chain
 
 from posts.models import Post
 from projs.models import Project
+from gitlab_watcher.models import GitlabProject
 
 # Create your views here.
 def search(request):
@@ -16,6 +17,7 @@ def search(request):
 
     queryset_posts = Post.objects.all().order_by("-timestamp").filter(draft=0)
     queryset_projs = Project.objects.all().order_by("-timestamp").filter(draft=0)
+    queryset_gitlab = GitlabProject.objects.all().order_by("-timestamp")
 
     if query:
         queryset_posts = queryset_posts.filter(
@@ -31,8 +33,15 @@ def search(request):
             Q(user__first_name__icontains=query) |
             Q(user__last_name__icontains=query)
         ).distinct()
-    
-    queryset = sorted(chain(queryset_posts, queryset_projs),
+
+        queryset_gitlab = queryset_gitlab.filter(
+            Q(title__icontains=query) |
+            Q(description__icontains=query) |
+            Q(user__first_name__icontains=query) |
+            Q(user__last_name__icontains=query)
+        ).distinct()
+
+    queryset = sorted(chain(queryset_posts, queryset_projs, queryset_gitlab),
                       key=lambda instance: instance.timestamp, reverse=True)
 
     context = {
