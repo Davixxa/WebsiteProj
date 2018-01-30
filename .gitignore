@@ -103,3 +103,4 @@ src/db.sqlite3
 migrations
 public
 .vscode
+src/dbz.sqlite3
