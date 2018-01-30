@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div>
+        <h1>{{ project.name }}</h1>
+    <h1>{{project.description}}</h1> 
+    <h2>{{project.url}}</h2>
+</div>
+
+{%for commit in commits%}
+    <p>{{commit}}</p>
+{% endfor %}
+{% endblock %}

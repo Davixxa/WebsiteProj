@@ -26,6 +26,7 @@ urlpatterns = [
     url(r'^projects/', include("projs.urls", namespace='projs')),
     url(r'', include("static_pages.urls", namespace='static')),
     url(r'^search/', include("search.urls", namespace='search')),
+    url(r'^source/', include("gitlab_watcher.urls", namespace='gitlab')),
 
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

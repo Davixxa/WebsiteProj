@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'projs', # 'projects' collides with the django internal 'projects' namespace
     'static_pages',
     'markdownx',
+    'gitlab_watcher',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
