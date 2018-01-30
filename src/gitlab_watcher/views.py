@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.cache import cache_page
 import requests
 
@@ -10,6 +10,7 @@ def gitlab_detail(request, slug):
     if slug.isdigit():
         iid = slug
         instance = get_object_or_404(Project, project_id=iid)
+        return  redirect('gitlab:detail', slug=instance.slug) # remove this line if you want to accept ids in the final url
     else:
         instance = get_object_or_404(Project, slug=slug.lower())
         iid = instance.project_id
