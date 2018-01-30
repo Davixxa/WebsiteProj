@@ -5,45 +5,58 @@
 
 
 {% block content %}
+            <div class="ui container">
 
-    <div class="ui container">
-
-            <div class="ui message">
-                <span class="ui huge header">Davixxa's Spot</span><br>
-                <span class="ui sub header">Ramblings of a lazy weeb tech enthusiast.</span>
-            </div>
-
-            <h2>Recent Posts:</h2>
-            <div class="ui divider"></div>
-
-        <div class="ui three cards">
-    {% for post in query_set %}
-            
-            <div class="ui link fluid card">
-               
-                <div class="image">
-                    <img src="{{ post.image }}" alt="">
-                </div>
-                <div class="content">
-                    <span class="header"><h3>{{ post.title }}</h3></span>
-                    <div class="meta">
-                        <span class="date">{{ post.timestamp }} </span>
-                    </div>
-                    <div class="extra content">
-                            <a class="author">
-                            <i class="user icon"></i>
-                               {{ post.author }}
-                            </a>
+                <div class="ui grid">
+                    <div class="row">
+                        <div class="sixteen wide column">
+                            <div class="ui fluid message">
+                                <span class="ui huge header">Davixxa's Spot</span><br>
+                                <span class="ui sub header">Ramblings of a lazy weeb tech enthusiast.</span>
+                            </div>
                         </div>
-                    <br>
-                    <div class="description"><a href="{% url 'posts:detail' slug=post.slug %}"><h4><i class="angle right icon"></i> Read the post. </h4></a></div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="sixteen wide column">
+                            <h2 class="">Recent Posts:</h2>
+                            <div class="ui divider"></div>
+                        </div>
+                    </div>
+
+                
+                    <div class="row">
+
+                    <div class="ui three cards">
                     
+                        {% for post in query_set %}
+                        
+                        <div class="ui link fluid card">
+                        
+                            <div class="image">
+                                <img src="{{ post.image }}" alt="">
+                            </div>
+                            <div class="content">
+                                <span class="header"><h3>{{ post.title }}</h3></span>
+                                <div class="meta">
+                                    <span class="date">{{ post.timestamp }} </span>
+                                </div>
+                                <div class="extra content">
+                                        <a class="author">
+                                        <i class="user icon"></i>
+                                        {{ post.author }}
+                                        </a>
+                                    </div>
+                                <br>
+                                <div class="description"><a href="{% url 'posts:detail' slug=post.slug %}"><h4><i class="angle right icon"></i> Read the post. </h4></a></div>
+                                
+                            </div>
+                        </div>
+                        
+                        <!--<a href="{% url 'posts:detail' slug=post.slug %}"><h1>{{post.title}}</h1></a>-->
+                {% endfor %}
+                    </div>
                 </div>
             </div>
-            
-            <!--<a href="{% url 'posts:detail' slug=post.slug %}"><h1>{{post.title}}</h1></a>-->
-    {% endfor %}
-        </div>
-    </div>
     
 {% endblock %}
