@@ -32,7 +32,7 @@ virtualenv venv -p python3.5
 ```
 
 Activate it using one of the following commands: 
-```s
+```sh
 # Windows
 .\venv\Scripts\activate
 
