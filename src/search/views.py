@@ -45,7 +45,7 @@ def search(request):
                       key=lambda instance: instance.timestamp, reverse=True)
 
     context = {
-        "queryset": queryset
+        "queryset": queryset[:10] # limit search results default 10
     }
 
     return render(request, "search.html", context=context)
