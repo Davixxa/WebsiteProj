@@ -43,6 +43,7 @@ SITE = {
 INSTALLED_APPS = [
     'posts',
     'projs', # 'projects' collides with the django internal 'projects' namespace
+    'static_pages',
     'markdownx',
     'django.contrib.admin',
     'django.contrib.auth',
