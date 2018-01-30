@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     'static_pages',
     'gitlab_watcher',
     'markdownx',
-    'gitlab_watcher',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
