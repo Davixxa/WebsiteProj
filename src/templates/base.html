@@ -55,7 +55,7 @@
                             </div>
                             <div class="black right aligned column">
             
-                                Copyright &copy; 2018 Davixxa
+                                Copyright &copy; <span id="year"></span> Davixxa
             
                             </div>
                         </div>
@@ -67,6 +67,12 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="{% static 'semantic/semantic.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            var d = new Date().getFullYear()
+            $("#year").html(d)
+        })
+    </script>
     {% block extra_scripts %}
     {% endblock %}
 </body>
