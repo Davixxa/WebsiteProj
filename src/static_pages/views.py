@@ -20,3 +20,11 @@ def index(request):
     }
 
     return render(request, "index.html", context)
+
+def about(request):
+    """Render the about page
+    """
+    context = {
+
+    }
+    return render(request, "about.html", context)

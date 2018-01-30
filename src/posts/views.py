@@ -22,3 +22,10 @@ def post_detail(request, slug=None):
 
     return render(request,"post_detail.html", context)
 
+def post_list(request):
+    """Renders the 'blog' page
+    """
+    context = {
+        
+    }
+    return render(request,"post_list.html", context)

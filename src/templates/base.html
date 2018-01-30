@@ -14,10 +14,10 @@
     <header>
         <div class="ui inverted top menu">
             <div class="header item">Davixxa</div>
-            <a href="" class="item">Home</a>
-            <a href="" class="item">About</a>
-            <a href="" class="item">Blog</a>
-            <a href="" class="item">Projects</a>
+            <a href="{% url 'static:index' %}" class="item">Home</a>
+            <a href="{% url 'static:about' %}" class="item">About</a>
+            <a href="{% url 'posts:list' %}" class="item">Blog</a>
+            <a href="{% url 'projs:list' %}" class="item">Projects</a>
             
 
         </div>
@@ -48,10 +48,10 @@
             
                             </div>
                             <div class="black center aligned column">
-                                <a>Home</a> &bull;
-                                <a>About</a> &bull;
-                                <a>Blog</a> &bull;
-                                <a>Projects</a>
+                                <a href="{% url 'static:index' %}">Home</a> &bull;
+                                <a href="{% url 'static:about' %}">About</a> &bull;
+                                <a href="{% url 'posts:list' %}">Blog</a> &bull;
+                                <a href="{% url 'projs:list' %}">Projects</a>
                             </div>
                             <div class="black right aligned column">
             
