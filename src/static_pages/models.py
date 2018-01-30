@@ -7,3 +7,6 @@ class Redirect(models.Model):
     """
     slug = models.SlugField(unique=True, primary_key=True)
     url = models.URLField(verbose_name="Redirect to URL")
+
+    def __str__(self):
+        return self.slug
