@@ -20,19 +20,29 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '@snpcev(q2)bjlbq*yw52%xsa#s1lx7t=21shxz!r&9+9$g2^z'
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+# SECURITY WARNING: keep the secret key used in production secret!
+if DEBUG:
+    SECRET_KEY = '@snpcev(q2)bjlbq*yw52%xsa#s1lx7t=21shxz!r&9+9$g2^z'
+else:
+    SECRET_KEY = os.environ["SECRET_KEY"]
+
 ALLOWED_HOSTS = []
 
+# Site definition
+SITE = {
+    "url": "https://davixxa.net",
+    "logo_url": "https://pbs.twimg.com/profile_images/685958901431287808/g_DfNBbP_400x400.png",
+    "title": "Davixxa",
+    "description": "RAMBLINGS OF A LAZY WEEB TECH ENTHUSIAST."
+}
 
 # Application definition
-
 INSTALLED_APPS = [
     'posts',
+    'projs', # 'projects' collides with the django internal 'projects' namespace
     'markdownx',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -77,23 +87,39 @@ WSGI_APPLICATION = 'davixxa_website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
-}
+else:
+    """Use mysql in production
+    This has been confirmed to be possible, however, the host domain
+    has to be known beforehand such that it can be set to trusted in the DB
+    please contact @kasperfred <kasper@kasperfred.com> for more details
+    """
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.mysql',
+            'NAME': os.environ['DATABASE_NAME'],
+            'USER': os.environ['DATABASE_USER'],
+            'PASSWORD': os.environ['DATABASE_PASSWORD'],
+            'HOST': os.environ['DATABASE_HOST'],
+            'PORT': os.environ['DATABASE_PORT'],
+        }
+    }
 
-#DATABASES = {
-  #  'default': {
-  #      'ENGINE': 'django.db.backends.mysql',
-  #      'NAME': os.environ['DATABASE_NAME'],
-  #      'USER': os.environ['DATABASE_USER'],
-  #      'PASSWORD': os.environ['DATABASE_PASSWORD'],
-  #      'HOST': 'davixxa.kasperfred.com',
- #       'PORT': '3306',
-#    }
-#}
+# HTTPS
+if DEBUG:
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
+else:
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
 
 
 # Password validation

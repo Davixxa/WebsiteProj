@@ -8,7 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="{% static 'semantic/semantic.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/main.css' %}" rel="stylesheet">
-<title>Davixxa.net | {%block title %} 404 Page Not Found{% endblock %}</title>
+    <title>Davixxa.net | {%block title %} 404 Page Not Found{% endblock %}</title>
+    <link rel="alternate" type="application/rss+xml" title="Davixxa > Feed" href="{% url 'static:rss' %}">
 </head>
 <body class="Site">
     <header>
@@ -24,6 +25,11 @@
                     </div>
                 </div>
             </div>
+            <div class="header item">Davixxa</div>
+            <a href="{% url 'static:index' %}" class="item">Home</a>
+            <a href="{% url 'static:about' %}" class="item">About</a>
+            <a href="{% url 'posts:list' %}" class="item">Blog</a>
+            <a href="{% url 'projs:list' %}" class="item">Projects</a>
         </div>
     </header>
 
@@ -52,14 +58,14 @@
             
                             </div>
                             <div class="black center aligned column">
-                                <a>Home</a> &bull;
-                                <a>About</a> &bull;
-                                <a>Blog</a> &bull;
-                                <a>Projects</a>
+                                <a href="{% url 'static:index' %}">Home</a> &bull;
+                                <a href="{% url 'static:about' %}">About</a> &bull;
+                                <a href="{% url 'posts:list' %}">Blog</a> &bull;
+                                <a href="{% url 'projs:list' %}">Projects</a>
                             </div>
                             <div class="black right aligned column">
             
-                                Copyright &copy; 2018 Davixxa
+                                Copyright &copy; <span id="year"></span> Davixxa
             
                             </div>
                         </div>
@@ -71,5 +77,13 @@
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="{% static 'semantic/semantic.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            var d = new Date().getFullYear()
+            $("#year").html(d)
+        })
+    </script>
+    {% block extra_scripts %}
+    {% endblock %}
 </body>
 </html>

@@ -5,6 +5,7 @@
 
 
 {% block content %}
+<<<<<<< HEAD
             <div class="ui container">
 
                 <div class="ui grid">
@@ -15,6 +16,31 @@
                                 <span class="ui sub header">Ramblings of a lazy weeb tech enthusiast.</span>
                             </div>
                         </div>
+=======
+
+    <div class="ui container">
+
+            <div class="ui message">
+                <span class="ui huge header">Davixxa's Spot</span><br>
+                <span class="ui sub header">Ramblings of a lazy weeb tech enthusiast.</span>
+            </div>
+
+            <h2>Recent Posts:</h2>
+            <div class="ui divider"></div>
+
+        <div class="ui three cards">
+    {% for post in query_set %}
+            
+            <div class="ui link fluid card">
+               
+                <div class="image">
+                    <img onclick="window.location='{{ post.get_absolute_url }}'" src="{{ post.image }}" alt="">
+                </div>
+                <div class="content">
+                    <span class="header"><h3>{{ post.title }}</h3></span>
+                    <div class="meta">
+                        <span class="date">{{ post.timestamp }} </span>
+>>>>>>> 5d2486de719cba5bda2daf16c728615e979f567e
                     </div>
                 
                     <div class="row">
@@ -22,12 +48,17 @@
                             <h2 class="">Recent Posts:</h2>
                             <div class="ui divider"></div>
                         </div>
+<<<<<<< HEAD
                     </div>
 
                 
                     <div class="row">
 
                     <div class="ui three cards">
+=======
+                    <br>
+                    <div class="description"><a href="{{ post.get_absolute_url }}"><h4><i class="angle right icon"></i> Read the post. </h4></a></div>
+>>>>>>> 5d2486de719cba5bda2daf16c728615e979f567e
                     
                         {% for post in query_set %}
                         
@@ -58,5 +89,11 @@
                     </div>
                 </div>
             </div>
+<<<<<<< HEAD
+=======
+    {% endfor %}
+        </div>
+    </div>
+>>>>>>> 5d2486de719cba5bda2daf16c728615e979f567e
     
 {% endblock %}
