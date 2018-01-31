@@ -13,7 +13,7 @@ COPY . /app
 WORKDIR /app/src
 
 # make database
-RUN python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput
+# RUN python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --noinput
 
 # create default super_user
 # RUN echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'password')" | python manage.py shell

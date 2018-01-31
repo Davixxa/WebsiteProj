@@ -1,7 +1,20 @@
-version: '3'
+version: '2'
 
 services:
+  db:
+    image: mysql:8.0
+    environment: 
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: davixxa
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+    ports:
+      - "3306:3306"
+
   web:
     volumes:
       - .:/app
-    command: bash -c "python manage.py collectstatic --no-input && gunicorn --bind=0.0.0.0:8000 davixxa_website.wsgi"
+    command: bash -c "python manage.py makemigrations && python manage.py migrate && python manage.py collectstatic --no-input && gunicorn --bind=0.0.0.0:8000 davixxa_website.wsgi"
+
+    depends_on:
+      - db
