@@ -14,7 +14,38 @@
 
     </form>
 
+    {% if request.get.q %}
+    <h1>Search Results:</h1>
+    {% endif %}
+    <br>
+
+<div class="ui three cards">
 {% for post in queryset %}
-<p>{{post.title}}</p>
+
+
+
+<div class="ui link fluid card">
+        
+            <div class="image">
+                <img onclick="window.location='{{ post.get_absolute_url }}'" src="{{ post.image }}" alt="">
+            </div>
+            <div class="content">
+                <span class="header"><h3>{{ post.title }}</h3></span>
+                <div class="meta">
+                    <span class="date">{{ post.timestamp }} </span>
+                </div>
+                <div class="extra content">
+                        <a class="author">
+                        <i class="user icon"></i>
+                        {{ post.author }}
+                        </a>
+                    </div>
+                <br>
+                <div class="description"><a href="{{ post.get_absolute_url }}"><h4><i class="angle right icon"></i> Read more. </h4></a></div>
+                
+            </div>
+        </div>
+
 {% endfor %}
+    </div>
 {% endblock %}

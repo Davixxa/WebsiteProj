@@ -104,3 +104,4 @@ migrations
 public
 .vscode
 src/dbz.sqlite3
+mysqlclient-1.3.12-cp36-cp36m-win_amd64.whl
