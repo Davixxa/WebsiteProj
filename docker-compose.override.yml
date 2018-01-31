@@ -1,0 +1,7 @@
+version: '3'
+
+services:
+  web:
+    volumes:
+      - .:/app
+    command: bash -c "python manage.py collectstatic --no-input && gunicorn --bind=0.0.0.0:8000 davixxa_website.wsgi"
