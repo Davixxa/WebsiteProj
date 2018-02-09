@@ -16,8 +16,11 @@ services:
       - .:/app
     command: bash -c "python manage.py makemigrations && 
                       python manage.py makemigrations projs && 
-                      python manage.py migrate && python manage.py collectstatic --no-input && 
+                      python manage.py migrate && python manage.py collectstatic --no-input &&      
                       gunicorn --bind=0.0.0.0:8000 davixxa_website.wsgi"
     
     depends_on:
       - db
+
+
+#python manage.py createsuperuser --username admin --email example@example.com --no-input &&
