@@ -22,6 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+DOCKER = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
 if DEBUG:
@@ -90,16 +91,25 @@ WSGI_APPLICATION = 'davixxa_website.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'NAME': "davixxa",
-            'USER': "root",
-            'PASSWORD': "password",
-            'HOST': "db",
-            'PORT': "3306",
+    if DOCKER:
+        """If Docker is set, use docker, if not, use a sqlite3 backend."""
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.mysql',
+                'NAME': "davixxa",
+                'USER': "root",
+                'PASSWORD': "password",
+                'HOST': "db",
+                'PORT': "3306",
+            }
         }
-    }
+    else:
+        DATABASES = {
+            'default': {
+                'ENGINE': 'django.db.backends.sqlite3',
+                'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+            }
+        }
 else:
     """Use mysql in production
     This has been confirmed to be possible, however, the host domain
