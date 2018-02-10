@@ -12,7 +12,7 @@ def index(request):
     """
     # query_sets are lazy, so we can limit the number of
     # posts by using list-slicing, here the first 10 posts
-    query_set = Post.objects.all().filter(draft=0)[:10]
+    query_set = Post.objects.all().filter(draft=0)[:9]
 
     for query in query_set:
         query.author = query.user.get_username()
