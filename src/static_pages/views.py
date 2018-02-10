@@ -2,6 +2,8 @@ from django.shortcuts import render, HttpResponse, redirect, get_object_or_404
 
 from posts.models import Post
 from .models import Redirect
+from dateutil.relativedelta import relativedelta
+import datetime
 
 # Create your views here.
 
@@ -26,8 +28,14 @@ def index(request):
 def about(request):
     """Render the about page
     """
-    context = {
 
+    dob = datetime.date(1999,8,4)
+    now = datetime.datetime.now()
+    difference = relativedelta(now, dob).years
+
+
+    context = {
+        "age": difference
     }
     return render(request, "about.html", context)
 

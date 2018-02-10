@@ -1,18 +1,41 @@
 {% extends 'base.html' %}
 
+{% block title %} Commits for {{ project.title }} {% endblock %}
+
 {% block content %}
 
-<div>
-    <h1>Commits for {{ project.title }}</h1>
-    <h2>{{project.description}}</h2> 
-    <h3><a href="{{project.url}}">Link to the Gitlab Repository</a></h3>
+
+<div class="ui container">
+        <div class="ui grid">
+            <div class="ui two wide column"></div>
+            <div class="ui twelve wide column">
+                <div class="ui message">
+                    <span class="ui huge header">Commits for {{ project.title }}</span>
+                    <br>
+                    <span class="ui sub header">{{project.description}}</span> 
+                    <h3><a href="{{project.url}}">Link to the Gitlab Repository</a></h3>
+                </div>
+            </div>
+        </div>
 </div>
 
+<br>
+
 {%for commit in commits%}
-    <p>{{commit}}</p>
-    <h2> Commit by {{ commit.committer_name }} on {{ commit.committed_date }} </h2>
-    <p>{{commit.message}}</p>
-    <p>Commit ID: <a href="{{project.url}}/commit/{{commit.short_id}}">{{commit.short_id}}</a></p>
+    <div class="ui container">
+        <div class="ui fluid message">
+            <span class="ui huge header">Commit by {{ commit.committer_name }} on {{ commit.committed_date }}</span>
+            <span class="ui sub header">Commit ID: <a href="{{project.url}}/commit/{{commit.short_id}}">{{commit.short_id}}</a></span>
+            <br>
+            
+        
+            <!--<p>{{commit}}</p>-->
+            <!--<h2> Commit by {{ commit.committer_name }} on {{ commit.committed_date }} </h2>-->
+            <p>{{commit.message |linebreaksbr |safe}}</p>
+            <p></p>
+        </div>
+        <br>
+    </div>
 
 {% endfor %}
 {% endblock %}

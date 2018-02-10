@@ -3,5 +3,42 @@
 {% block title %} About {% endblock %}
 
 {% block content %}
-<h1>About</h1>
+
+<div class="ui container">
+        <div align="center">
+                <h1>About me</h1>
+        </div>
+        <div class="ui message">
+            <p>Hi, I'm Davixxa. I'm a {{ age }} year old high school student. Welcome to my website!</p>
+            <p>Unless you somehow stumbled upon my website from Google, know me in real life or something along those lines, you probably know me from a few places.</p>
+            <p>You might know me from the <a href="http://reddit.com/r/steinsgate">Steins;Gate subreddit</a>, as well as it's <a href="https://discord.gg/YBmZzfA">Discord Server</a>, or you might know me from my <a href="http://youtube.com/Davixxa">YouTube Channel</a>.</p>
+            <p>I'm an avid anime-viewer, as well as a large fan of the <ruby><rb>科学</rb> <rt>かがく</rt><rb>アドベンチャーシリーズ</rb><rt>Adventure</rt>/科学ADV</ruby> (Science Adventure/SciADV) franchise. Other things I enjoy are gaming, my main games currently being World of Warcraft and League of Legends. Aside from that, I quite enjoy programming, hence me making this site in the first place.</p>
+            <p>My language of choice is Python, but I know a bit of C#, Java, Lua and PHP.</p>
+            <p>You can find me on <a href="http://twitter.com/DavixxaYT">Twitter</a>, <a href="http://myanimelist.net/animelist/Davixxa">MyAnimeList</a>, <a href="http://http://curiouscat.me/Davixxa ">CuriousCat</a> as well as YouTube, which I mentioned before.</p>
+        </div>
+
+
+
+    <div align="center">
+        <h1>Attributions</h1>
+    </div>
+    <div class="ui message">
+        <p>Currently, as of writing this (February 10th, 2018) I'm using the following libraries for this website (list extracted from my pip freeze)</p>
+
+        <ul>
+
+            <li>Django</li>
+            <li>Django-Markdown</li>
+            <li>Gunicorn</li>
+            <li>Markdown</li>
+            <li>MySQLClient</li>
+            <li>Pillow</li>
+            <li>python-dateutil</li>
+            <li>requests</li>
+            <li>And any dependencies each have.</li>
+
+        </ul>
+    </div>
+</div>
+
 {% endblock %}
