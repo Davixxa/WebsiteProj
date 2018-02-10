@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 """
 
 import os
+from django.conf.locale.en import formats as en_formats
+en_formats.DATETIME_FORMAT = "F jS, Y H:i"
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)

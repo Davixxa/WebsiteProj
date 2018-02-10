@@ -3,6 +3,7 @@ from django.views.decorators.cache import cache_page
 import requests
 import datetime
 from dateutil.parser import *
+from django.utils.dateformat import DateFormat
 
 # Create your views here.
 from .models import GitlabProject
@@ -24,9 +25,12 @@ def gitlab_detail(request, slug):
 
     for commit in content:
         date = parse(commit["committed_date"])
-        formatted_date = date.strftime("%b. %d, %Y, %I:%M %p").replace("AM", "a.m").replace("PM", "p.m")
+        
+        formatted_date = DateFormat(date) 
+
+        #formatted_date = date.strftime("%B %-d, %Y, %I:%M %p")
         #print(commit["committed_date"])
-        commit["committed_date"] = formatted_date
+        commit["committed_date"] = formatted_date.format('F jS, Y H:i')
 
     context = {
         "project": instance,

@@ -3,17 +3,16 @@
 {% block content %}
 
 <div>
-        <h1>{{ project.name }}</h1>
-    <h1>{{project.description}}</h1> 
-    <h2>{{project.url}}</h2>
+    <h1>Commits for {{ project.title }}</h1>
+    <h2>{{project.description}}</h2> 
+    <h3><a href="{{project.url}}">Link to the Gitlab Repository</a></h3>
 </div>
 
 {%for commit in commits%}
     <p>{{commit}}</p>
-
-    <h2>{{commit.title}}</h2>
-    <h3>by {{ commit.committer_name }} on {{ commit.committed_date }} </h3>
+    <h2> Commit by {{ commit.committer_name }} on {{ commit.committed_date }} </h2>
     <p>{{commit.message}}</p>
+    <p>Commit ID: <a href="{{project.url}}/commit/{{commit.short_id}}">{{commit.short_id}}</a></p>
 
 {% endfor %}
 {% endblock %}
