@@ -42,7 +42,7 @@
                     
                         {% for post in query_set %}
                         
-                        <div class="ui link fluid card">
+                        <div class="ui link fluid card" style="min-width: 20em;">
                         
                             <div class="image">
                                 <img onclick="window.location='{{ post.get_absolute_url }}'" src="{{ post.image }}" alt="">
