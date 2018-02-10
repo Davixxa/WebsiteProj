@@ -31,7 +31,7 @@
         <div class="row">
             <div class="ui three cards">
                 {% for post in queryset %}
-                    <div class="ui link fluid card" style="min-width: 20em;"> 
+                    <div class="ui link fluid card davcard"> 
                         <div class="image">
                             <img onclick="window.location='{{ post.get_absolute_url }}'" src="{{ post.image }}" alt="">
                         </div>

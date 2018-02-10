@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.views.decorators.cache import cache_page
 import requests
+import datetime
+from dateutil.parser import *
 
 # Create your views here.
 from .models import GitlabProject
@@ -19,6 +21,12 @@ def gitlab_detail(request, slug):
 
     req = requests.get(url)
     content = req.json()
+
+    for commit in content:
+        date = parse(commit["committed_date"])
+        formatted_date = date.strftime("%b. %d, %Y, %I:%M %p").replace("AM", "a.m").replace("PM", "p.m")
+        #print(commit["committed_date"])
+        commit["committed_date"] = formatted_date
 
     context = {
         "project": instance,

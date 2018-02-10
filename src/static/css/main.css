@@ -102,3 +102,10 @@
     background-color: #383838 !important;
     color: #D9D9D9 !important;
   }
+
+
+  div.davcard {
+
+    min-width: 20em !important;
+
+  }

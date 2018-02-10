@@ -5,13 +5,32 @@
 {% block content %}
 <h1>Projects</h1>
 
-
+<div class="ui three cards">
     {% for project in projects %}
 
-        {{ project.name }} <br>
+                    <div class="ui link fluid card davcard"> 
+                        <div class="image">
+                            <img onclick="window.location='{{ project.get_absolute_url }}'" src="{{ project.image }}" alt="">
+                        </div>
+                        <div class="content">
+                            <span class="header"><h3>{{ project.title }}</h3></span>
+                            <div class="meta">
+                                <span class="date">{{ project.timestamp }} </span>
+                            </div>
+                            <div class="extra content">
+                                    <a class="author">
+                                    <i class="user icon"></i>
+                                    {{ project.user.get_username }} 
+                                    </a>
+                                </div>
+                            <br>
+                            <div class="description"><a href="{{ project.get_absolute_url }}"><h4><i class="angle right icon"></i> Read more. </h4></a></div>  
+                        </div>
+                    </div>
 
 
     {% endfor %}
+</div>
 
     <div class="pagination">
 

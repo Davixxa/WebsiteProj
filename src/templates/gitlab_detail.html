@@ -10,5 +10,10 @@
 
 {%for commit in commits%}
     <p>{{commit}}</p>
+
+    <h2>{{commit.title}}</h2>
+    <h3>by {{ commit.committer_name }} on {{ commit.committed_date }} </h3>
+    <p>{{commit.message}}</p>
+
 {% endfor %}
 {% endblock %}
