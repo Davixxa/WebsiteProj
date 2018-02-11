@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 DOCKER = False
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -39,7 +39,7 @@ SITE = {
     "url": "https://davixxa.net",
     "logo_url": "https://pbs.twimg.com/profile_images/685958901431287808/g_DfNBbP_400x400.png",
     "title": "Davixxa",
-    "description": "RAMBLINGS OF A LAZY WEEB TECH ENTHUSIAST."
+    "description": "Ramblings of a lazy weeb tech enthusiast."
 }
 
 # Application definition
