@@ -53,6 +53,39 @@
                 {% endfor %}
                 </div>
             </div>
+
+            <div class="row">
+                    <div class="six wide column"></div>
+                    {% if not queryset.has_previous %}
+                        <div class="one wide column"> &nbsp; </div>
+                    {% endif %}
+
+                    <div class="pagination">
+
+                            <span class="step-links">
+                    
+                                {% if queryset.has_previous %}
+                                    <button onclick='location.href="?q={{request.GET.q}}&page={{ queryset.previous_page_number }}";' class="ui red button">Previous</button>
+                                {% endif %}
+                    
+                                <span class="current">
+                                    Page {{ queryset.number }} of {{ pages }} 
+                                </span>
+
+                                &nbsp;
+                    
+                                {% if queryset.has_next %}
+                                    <button onclick='location.href="?q={{request.GET.q}}&page={{ queryset.next_page_number }}";' class="ui primary button">Next</button>
+                                {% endif %}
+                    
+                    
+                            </span>
+                    
+                    
+                        </div>
+
+        </div>
+
     </div>
 </div>
 {% endblock %}

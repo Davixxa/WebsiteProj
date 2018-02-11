@@ -3,55 +3,71 @@
 {% block title %} Projects {% endblock %}
 
 {% block content %}
-<h1>Projects</h1>
+<div class="ui container">
+    <div class="ui grid">
 
-<div class="ui two cards">
-    {% for project in projects %}
+            <h1>Projects</h1>
 
-                    <div class="ui link fluid card davcard"> 
-                        <div class="image">
-                            <img onclick="window.location='{{ project.get_absolute_url }}'" src="{{ project.image }}" alt="">
-                        </div>
-                        <div class="content">
-                            <span class="header"><h3>{{ project.title }}</h3></span>
-                            <div class="meta">
-                                <span class="date">{{ project.timestamp }} </span>
-                            </div>
-                            <div class="extra content">
-                                    <a class="author">
-                                    <i class="user icon"></i>
-                                    {{ project.user.get_username }} 
-                                    </a>
+            <div class="ui two cards">
+                {% for project in projects %}
+            
+                                <div class="ui link fluid card davcard"> 
+                                    <div class="image">
+                                        <img onclick="window.location='{{ project.get_absolute_url }}'" src="{{ project.image }}" alt="">
+                                    </div>
+                                    <div class="content">
+                                        <span class="header"><h3>{{ project.title }}</h3></span>
+                                        <div class="meta">
+                                            <span class="date">{{ project.timestamp }} </span>
+                                        </div>
+                                        <div class="extra content">
+                                                <a class="author">
+                                                <i class="user icon"></i>
+                                                {{ project.user.get_username }} 
+                                                </a>
+                                            </div>
+                                        <br>
+                                        <div class="description"><a href="{{ project.get_absolute_url }}"><h4><i class="angle right icon"></i> Read more. </h4></a></div>  
+                                    </div>
                                 </div>
-                            <br>
-                            <div class="description"><a href="{{ project.get_absolute_url }}"><h4><i class="angle right icon"></i> Read more. </h4></a></div>  
-                        </div>
-                    </div>
-
-
-    {% endfor %}
-</div>
-
-    <div class="pagination">
-
-        <span class="step-links">
-
-            {% if projects.has_previous %}
-                <a href="?page={{ projects.previous_page_number }}">Previous</a>
-            {% endif %}
-
-            <span class="current">
-                Page {{ projects.number }} of {{ projects.num_pages }}.
-            </span>
-
-            {% if projects.has_next %}
-                <a href="?page={{ projects.next_page_number }}">Next</a>
-            {% endif %}
-
-
-        </span>
-
+            
+            
+                {% endfor %}
+            </div>
+            
+                <div class="row">
+                        <div class="six wide column"></div>
+                        {% if not projects.has_previous %}
+                            <div class="one wide column"> &nbsp; </div>
+                        {% endif %}
+            
+                        <div class="pagination">
+            
+                                <span class="step-links">
+                        
+                                    {% if projects.has_previous %}
+                                        <button onclick='location.href="?page={{ projects.previous_page_number }}";' class="ui red button">Previous</button>
+                                    {% endif %}
+                        
+                                    <span class="current">
+                                        Page {{ projects.number }} of {{ pages }} 
+                                    </span>
+            
+                                    &nbsp;
+                        
+                                    {% if projects.has_next %}
+                                        <button onclick='location.href="?page={{ projects.next_page_number }}";' class="ui primary button">Next</button>
+                                    {% endif %}
+                        
+                        
+                                </span>
+                        
+                        
+                            </div>
+            
+            </div>
+            
 
     </div>
-
+</div>
 {% endblock %}

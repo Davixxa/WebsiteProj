@@ -13,10 +13,10 @@ def proj_list(request):
     query_set = Project.objects.all().filter(draft=0)
     paginator = Paginator(query_set, 10)
 
-    #query = request.GET.get("page")
+    page = request.GET.get("page")
 
     try:
-        projects = paginator.page("page")
+        projects = paginator.page(page)
     except PageNotAnInteger:
         projects = paginator.page(1)
     except EmptyPage:
@@ -31,7 +31,8 @@ def proj_list(request):
 
     context = {
 
-        "projects": projects
+        "projects": projects,
+        "pages" : paginator.num_pages
 
     }
     return render(request, "project_list.html", context)

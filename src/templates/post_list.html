@@ -3,5 +3,75 @@
 {% block title %} Posts {% endblock %}
 
 {% block content %}
-<h1>Posts</h1>
+
+<div class="ui container">
+        <div class="ui grid">
+    
+                <h1>Posts</h1>
+    
+                <div class="ui two cards">
+                    {% for post in posts %}
+                
+                                    <div class="ui link fluid card davcard"> 
+                                        <div class="image">
+                                            <img onclick="window.location='{{ post.get_absolute_url }}'" src="{{ post.image }}" alt="">
+                                        </div>
+                                        <div class="content">
+                                            <span class="header"><h3>{{ post.title }}</h3></span>
+                                            <div class="meta">
+                                                <span class="date">{{ post.timestamp }} </span>
+                                            </div>
+                                            <div class="extra content">
+                                                    <a class="author">
+                                                    <i class="user icon"></i>
+                                                    {{ post.user.get_username }} 
+                                                    </a>
+                                                </div>
+                                            <br>
+                                            <div class="description"><a href="{{ post.get_absolute_url }}"><h4><i class="angle right icon"></i> Read more. </h4></a></div>  
+                                        </div>
+                                    </div>
+                
+                
+                    {% endfor %}
+                </div>
+                
+                    <div class="row">
+                            <div class="six wide column"></div>
+                            {% if not posts.has_previous %}
+                                <div class="one wide column"> &nbsp; </div>
+                            {% endif %}
+                
+                            <div class="pagination">
+                
+                                    <span class="step-links">
+                            
+                                        {% if posts.has_previous %}
+                                            <button onclick='location.href="?page={{ posts.previous_page_number }}";' class="ui red button">Previous</button>
+                                        {% endif %}
+                            
+                                        <span class="current">
+                                            Page {{ posts.number }} of {{ pages }} 
+                                        </span>
+                
+                                        &nbsp;
+                            
+                                        {% if posts.has_next %}
+                                            <button onclick='location.href="?page={{ posts.next_page_number }}";' class="ui primary button">Next</button>
+                                        {% endif %}
+                            
+                            
+                                    </span>
+                            
+                            
+                                </div>
+                
+                </div>
+                
+    
+        </div>
+    </div>
+
+
+
 {% endblock %}
