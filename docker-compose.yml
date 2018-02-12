@@ -2,7 +2,7 @@ version: '3'
 
 services:
   web:
-    image: davixxa/websiteproj
+    image: davixxa/websiteproj:latest
     networks:
       - default
       - traefik-net
