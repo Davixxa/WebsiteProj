@@ -3,5 +3,14 @@ version: '3'
 services:
   web:
     build: .
-    ports:
-      - "80:8000"
+    networks:
+      - default
+      - traefik-net
+    deploy:
+      labels:
+        - "traefik.port=80"
+        - "traefik.docker.network=traefik-net"
+        - "traefik.frontend.rule=Host:davixxa.net"
+networks:
+  traefik-net:
+    external: true
