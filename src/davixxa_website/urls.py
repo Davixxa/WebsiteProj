@@ -28,5 +28,4 @@ urlpatterns = [
     url(r'^search/', include("search.urls", namespace='search')),
     url(r'^source/', include("gitlab_watcher.urls", namespace='gitlab')),
 
-]
-urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
