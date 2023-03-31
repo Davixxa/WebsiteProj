@@ -28,7 +28,7 @@ docker run dev
 
 ```sh
 # Create a virtual environment
-virtualenv venv -p python3.5
+virtualenv venv -p python3.11
 ```
 
 Activate it using one of the following commands: 
